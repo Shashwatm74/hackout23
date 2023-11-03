@@ -8,7 +8,7 @@ function Dashboard() {
         <>
             <useAuth>
                 <section className={styles.navbar}>
-                    <h1 id={styles.logo}>TravelEase</h1>
+                    <h1 className={styles.logo}>TravelEase</h1>
 
                     <div >
                         <ul className={styles.listt}>
@@ -33,31 +33,67 @@ function Dashboard() {
                         <div className={styles.container}>
                             <div className={styles.row1}>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box1}>
+                                        <div>icon</div>
+                                        <div className="styles.holder"><input type="text" placeholder="Where to"/></div>
+                                        <div>icon</div>
+                                        <div className="styles.holder"><input type="text" placeholder="Where from"/></div>
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box1}>
+                                        <div>icon</div>
+                                        <div>Date</div>
+                                        <div><input type="date" placeholder="from"/></div>
+                                        <div>-</div>
+                                        <div><input type="date" name="till"/></div>
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box1}>
+                                        <div>icon</div>
+                                        <div>No. of travellers</div>
+                                        <div><input type="number" placeholder="num"/></div>
+                                        
+                                    </div>
+
+                                    
                                 </div>
                             </div>
                             <div className={styles.row1}>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box1}>
+                                        <div>icon</div>
+                                        <div>Budget</div>
+                                        <div><input type="number" placeholder="num"/></div>
+                                        
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box1}>
+                                        <div>icon</div>
+                                        <div className="styles.holder">Travel</div>
+                                        <div><input type="radio" name="radio"/></div>
+                                        <div className="styles.holder">Flight</div>
+                                        <div><input type="radio" name="radio"/></div>
+                                        <div>Train</div>
+                                    </div>
                                 </div>
                                 <div className={styles.box}>
-                                    <h5>hello</h5>
+                                    <div className={styles.box2}>
+                                        <div>icon</div>
+                                        <div className="styles.holder">Food</div>
+                                        <div><input type="radio" name="radio"/></div>
+                                        <div className="styles.holder">Veg</div>
+                                        <div><input type="radio" name="radio"/></div>
+                                        <div>Non-Veg</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className={styles.search}>
                                 <button className={styles.srch}>Search</button>
                             </div>
                         </div>
-
                     </div>
                     <div className={styles.image}>
                         <img src="assets/travel.png" alt="Travel Image" />

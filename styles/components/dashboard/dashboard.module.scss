@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 20px;
+    box-shadow: 0 1px 1px black;
 }
 
 .listt {
@@ -22,6 +23,7 @@
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
+    margin: 10px;
 
 }
 
@@ -36,8 +38,9 @@
     list-style: none;
 }
 
-#logo {
+.logo {
     color: #CC3CFF;
+    margin: 10px;
 }
 
 .list2 li button {
@@ -48,6 +51,7 @@
     font-size: 20px;
     font-family: Poppins;
     background: #CC3CFF;
+    margin:5px;
 
 }
 
@@ -97,7 +101,8 @@
 .second {
     @include flexrow;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    
 }
 
 .trip {
@@ -158,4 +163,30 @@
 
 .d4 {
     font-size: 12px;
+}
+.box1 {
+    @include flexrow;
+    margin: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.box1 input {
+    border: 2px solid white;
+    width: 70px;
+    height: 15px;
+    text-align: center;
+    color: grey;
+}
+.box2 {
+    @include flexrow;
+    margin: 8px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.box2 input {
+    border: 2px solid white;
+    width: 70px;
+    height: 15px;
+    text-align: center;
+    color: grey;
 }
