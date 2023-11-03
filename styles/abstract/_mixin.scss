@@ -182,3 +182,8 @@
     }
 
 }
+
+@mixin flexrow {
+    display: flex;
+    flex-direction: row;
+}
