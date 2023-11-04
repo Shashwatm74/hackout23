@@ -187,3 +187,10 @@
     display: flex;
     flex-direction: row;
 }
+
+@mixin midsecpara {
+    color: gray;
+    font-family: $primary-font;
+    font-size: 1em;
+    font-weight: 100;
+}
