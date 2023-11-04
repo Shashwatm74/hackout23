@@ -3,7 +3,7 @@ import supabase from "@/lib/db/supabase";
 
 function Test() {
     const [fetchError, setFetchError] = useState(null);
-    const [flights, setFlights] = useState(null);
+    const [flights, setFlights] = useState([]);
 
     useEffect(() => {
         const fetchFlights = async () => {
@@ -16,12 +16,12 @@ function Test() {
                     throw new Error('Could not fetch flights');
                 }
 
-                setFlights(data);
+                setFlights(data || []);
                 setFetchError(null);
-                console.log(data);
             } catch (error) {
+                console.error(error);
                 setFetchError(error.message);
-                setFlights(null);
+                setFlights([]);
             }
         };
 
@@ -29,21 +29,20 @@ function Test() {
     }, []);
 
     return (
-        <>
-            <div>
-                {fetchError && <p>{fetchError}</p>}
-                {flights && (
-                    <ul>
-                        {flights.map(flight => (
-                            <li key={flight.flight_id}>
-                                {flight.source} to {flight.destination} - Price: {flight.price}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+        <div>
+            {fetchError && <p>{fetchError}</p>}
+            <div className="flight-list">
+                {flights.map(flight => (
+                    <div key={flight.fl_id} className="flight-item">
+                        <p>Flight No.: {flight.fl_id}</p>
+                        <p>Time: {flight.time}</p>
+                        <p>Source: {flight.source}</p>
+                        <p>Destination: {flight.destination}</p>
+                        <p>Price: {flight.price}</p>
+                    </div>
+                ))}
             </div>
-
-        </>
+        </div>
     );
 }
 

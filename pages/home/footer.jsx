@@ -11,13 +11,13 @@ function FooterHome() {
             <section className={styles.footer}>
                 <div className={styles.name}>
                     <h1>
-                        Title.ai
+                        Itenary.iq
                     </h1>
                     <p>
-                        A one line tag line a bit longer hehe
+                        You Travel, We Care!
                     </p>
                     <p>
-                        Lorem ipsum dolor sit ame
+                        Happy Holidays!
                     </p>
                 </div>
                 <div className={styles.info}>

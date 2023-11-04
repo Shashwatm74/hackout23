@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Legal.ai </title>
+        <title>itenary.iq</title>
         <meta name="description" content="AI based legal assistant" />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />

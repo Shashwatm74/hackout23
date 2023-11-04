@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <>
       <Head>
-        <title>Title.ai </title>
+        <title>Itenary.iq </title>
         <meta name="description" content="Conference on Linear Algebra" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -18,8 +18,8 @@ function HomePage() {
 
 
           <div className={styles.title}>
-            <h1>Title.ai</h1>
-            <p>A one line tag line a bit longer hehe</p>
+            <h1>Itenary.iq</h1>
+            <p>You travel, We care!</p>
           </div>
 
           {/* <div className={styles.homeImage}>
