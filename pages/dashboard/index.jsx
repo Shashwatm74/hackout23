@@ -10,37 +10,37 @@ function Dashboard() {
                 <section className={styles.dashboard}>
                     <h1 className={styles.title}>Your Trip</h1>
                     <div className={styles.where}>
-                        <div>icon</div>
+                        <div className={styles.icon1}>ico</div>
                         <div className="styles.holder"><input type="text" placeholder="Where to" /></div>
-                        <div>icon</div>
+                        <div className={styles.icon2}>=</div>
                         <div className="styles.holder"><input type="text" placeholder="Where from" /></div>
 
                     </div>
                     <div className={styles.date}>
-                        <div>icon</div>
+                        <div className={styles.icon3}>ico</div>
                         <div>Date</div>
                         <div><input type="date" placeholder="from" /></div>
                         <div>-</div>
                         <div><input type="date" name="till" /></div>
                     </div>
                     <div className={styles.ppl}>
-                        <div>icon</div>
+                        <div className={styles.icon4}>ico</div>
                         <div>No. of travellers</div>
                         <div><input type="number" placeholder="num" /></div>
                     </div>
                     <div className={styles.money}>
-                        <div>icon</div>
+                        <div className={styles.icon5}>ico</div>
                         <div>Budget</div>
                         <div><input type="number" placeholder="num" /></div>
                     </div>
                     <div className={styles.travel}>
-                        <div>icon</div>
+                        <div className={styles.icon6}>ico</div>
                         <div>Travel</div>
                         <div><input type="radio" name="radio" />Flight</div>
                         <div><input type="radio" name="radio" />Train</div>
                     </div>
                     <div className={styles.food}>
-                        <div>icon</div>
+                        <div className={styles.icon7}>ico</div>
                         <div className="styles.holder">Food</div>
                         <div><input type="radio" name="radio" />Veg</div>
                         <div><input type="radio" name="radio" />Non Veg</div>
