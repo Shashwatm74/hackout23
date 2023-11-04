@@ -1,11 +1,22 @@
 @import '/styles/abstract/variable';
 @import '/styles/abstract/mixin';
 
-.di {
-    width: 100vw;
-    height: 100vh;
+.wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
-.di p {
-    color: black;
+.container {
+    margin-top: 100px;
+    display: flex;
+    overflow-x: scroll;
+    justify-content: space-around;
+}
+
+.flight_list {
+    display: flex;
+}
+
+.flight_items {
+    border: 2px solid $secondary-color;
 }
