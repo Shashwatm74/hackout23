@@ -1,0 +1,11 @@
+@import '/styles/abstract/variable';
+@import '/styles/abstract/mixin';
+
+.di {
+    width: 100vw;
+    height: 100vh;
+}
+
+.di p {
+    color: black;
+}

@@ -7,25 +7,7 @@ function Dashboard() {
     return (
         <>
             <useAuth>
-                <section className={styles.navbar}>
-                    <h1 className={styles.logo}>TravelEase</h1>
-
-                    <div >
-                        <ul className={styles.listt}>
-                            <li>Home</li>
-                            <li>Cart</li>
-                            <li>Contact us</li>
-                        </ul>
-                    </div>
-                    <div className={styles.sub}>
-                        <ul className={styles.list2}>
-                            <li><button className={styles.sign}>signup</button></li>
-                            <li><button className={styles.sign}>signout</button></li>
-                        </ul>
-                    </div>
-
-                </section>
-                <section className={styles.second}>
+                {/* <section className={styles.main}>
                     <div className={styles.trip}>
                         <div>
                             <p>Your Trip</p>
@@ -35,29 +17,29 @@ function Dashboard() {
                                 <div className={styles.box}>
                                     <div className={styles.box1}>
                                         <div>icon</div>
-                                        <div className="styles.holder"><input type="text" placeholder="Where to"/></div>
+                                        <div className="styles.holder"><input type="text" placeholder="Where to" /></div>
                                         <div>icon</div>
-                                        <div className="styles.holder"><input type="text" placeholder="Where from"/></div>
+                                        <div className="styles.holder"><input type="text" placeholder="Where from" /></div>
                                     </div>
                                 </div>
                                 <div className={styles.box}>
                                     <div className={styles.box1}>
                                         <div>icon</div>
                                         <div>Date</div>
-                                        <div><input type="date" placeholder="from"/></div>
+                                        <div><input type="date" placeholder="from" /></div>
                                         <div>-</div>
-                                        <div><input type="date" name="till"/></div>
+                                        <div><input type="date" name="till" /></div>
                                     </div>
                                 </div>
                                 <div className={styles.box}>
                                     <div className={styles.box1}>
                                         <div>icon</div>
                                         <div>No. of travellers</div>
-                                        <div><input type="number" placeholder="num"/></div>
-                                        
+                                        <div><input type="number" placeholder="num" /></div>
+
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                             <div className={styles.row1}>
@@ -65,17 +47,17 @@ function Dashboard() {
                                     <div className={styles.box1}>
                                         <div>icon</div>
                                         <div>Budget</div>
-                                        <div><input type="number" placeholder="num"/></div>
-                                        
+                                        <div><input type="number" placeholder="num" /></div>
+
                                     </div>
                                 </div>
                                 <div className={styles.box}>
                                     <div className={styles.box1}>
                                         <div>icon</div>
                                         <div className="styles.holder">Travel</div>
-                                        <div><input type="radio" name="radio"/></div>
+                                        <div><input type="radio" name="radio" /></div>
                                         <div className="styles.holder">Flight</div>
-                                        <div><input type="radio" name="radio"/></div>
+                                        <div><input type="radio" name="radio" /></div>
                                         <div>Train</div>
                                     </div>
                                 </div>
@@ -83,9 +65,9 @@ function Dashboard() {
                                     <div className={styles.box2}>
                                         <div>icon</div>
                                         <div className="styles.holder">Food</div>
-                                        <div><input type="radio" name="radio"/></div>
+                                        <div><input type="radio" name="radio" /></div>
                                         <div className="styles.holder">Veg</div>
-                                        <div><input type="radio" name="radio"/></div>
+                                        <div><input type="radio" name="radio" /></div>
                                         <div>Non-Veg</div>
                                     </div>
                                 </div>
@@ -96,7 +78,7 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className={styles.image}>
-                        <img src="assets/travel.png" alt="Travel Image" />
+                        <img src="./travel.png" alt="Travel Image" />
 
                     </div>
                 </section>
@@ -122,6 +104,57 @@ function Dashboard() {
                         </div>
 
                     </div>
+                </section> */}
+
+                <section className={styles.dashboard}>
+                    <h1 className={styles.title}>Your Trip</h1>
+                    <div className={styles.where}>
+                        <div>icon</div>
+                        <div className="styles.holder"><input type="text" placeholder="Where to" /></div>
+                        <div>icon</div>
+                        <div className="styles.holder"><input type="text" placeholder="Where from" /></div>
+
+                    </div>
+                    <div className={styles.date}>
+                        <div>icon</div>
+                        <div>Date</div>
+                        <div><input type="date" placeholder="from" /></div>
+                        <div>-</div>
+                        <div><input type="date" name="till" /></div>
+                    </div>
+                    <div className={styles.ppl}>
+                        <div>icon</div>
+                        <div>No. of travellers</div>
+                        <div><input type="number" placeholder="num" /></div>
+                    </div>
+                    <div className={styles.money}>
+                        <div>icon</div>
+                        <div>Budget</div>
+                        <div><input type="number" placeholder="num" /></div>
+                    </div>
+                    <div className={styles.travel}>
+                        <div>icon</div>
+                        <div>Travel</div>
+                        <div><input type="radio" name="radio" />Flight</div>
+                        <div><input type="radio" name="radio" />Train</div>
+                    </div>
+                    <div className={styles.food}>
+                        <div>icon</div>
+                        <div className="styles.holder">Food</div>
+                        <div><input type="radio" name="radio" />Veg</div>
+                        <div><input type="radio" name="radio" />Non Veg</div>
+                    </div>
+                    <button className={styles.submit}>Submit</button>
+                    <div className={styles.img}>
+                    </div>
+                    <h1 className={styles.recc}>Recommendation</h1>
+                    <div className={styles.card1}></div>
+                    <h1 className={styles.tra}>Travel</h1>
+                    <div className={styles.card2}></div>
+                    <h1 className={styles.sta}>Stay</h1>
+                    <div className={styles.card3}></div>
+                    <h1 className={styles.sigh}>Sightseeing</h1>
+                    <div className={styles.card4}></div>
                 </section>
 
             </useAuth>
