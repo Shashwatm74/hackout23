@@ -1,41 +1,45 @@
-import React, { useState, useEffect, useRef } from "react";
-import "../_app";
+import React, { useState, useEffect } from "react";
 import supabase from "@/lib/db/supabase";
-import { toArray } from "gsap";
-import styles from '@/styles/components/testpage/test.module.scss';
+
 function Test() {
     const [fetchError, setFetchError] = useState(null);
     const [flights, setFlights] = useState(null);
 
     useEffect(() => {
         const fetchFlights = async () => {
-            const { data, error } = await supabase
-                .from("flights_ai")
-                .select()
-            if (error) {
-                setFetchError('Could not fetch flights')
-                setFlights(null)
-                console.log(error)
+            try {
+                const { data, error } = await supabase
+                    .from('flights_ai')
+                    .select();
+
+                if (error) {
+                    throw new Error('Could not fetch flights');
+                }
+
+                setFlights(data);
+                setFetchError(null);
+                console.log(data);
+            } catch (error) {
+                setFetchError(error.message);
+                setFlights(null);
             }
-            if (data) {
-                console.log(data)
-                setFlights(data)
-                setFetchError(null)
-            }
-        }
-        fetchFlights()
-    }, [])
+        };
+
+        fetchFlights();
+    }, []);
 
     return (
         <>
-            <div className={styles.di}>
-                {fetchError && (<p>{fetchError}</p>)}
+            <div>
+                {fetchError && <p>{fetchError}</p>}
                 {flights && (
-                    <div>
+                    <ul>
                         {flights.map(flight => (
-                            <p>{flight.fl_id}</p>
+                            <li key={flight.flight_id}>
+                                {flight.source} to {flight.destination} - Price: {flight.price}
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 )}
             </div>
 
