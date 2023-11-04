@@ -1,13 +1,149 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "styles/components/dashboard/dashboard.module.scss";
 import supabase from "@/lib/db/supabase";
 import Image from 'next/image';
 import { useAuth } from "@/lib/hooks/AuthHook";
 
 function Dashboard() {
+    const [whereto, setWhereto] = useState("");
+    const [wherefrom, setWherefrom] = useState("");
+    const [ddmmyyyy, setDdmmyyyy] = useState("");
+    const [ddmmyyyy2, setDdmmyyyy2] = useState("");
+    const [numOfTravelers, setNumOfTravelers] = useState("");
+    const [budget, setBudget] = useState("");
+    const [selectedValue, setSelectedValue] = useState(""); //
+    const [selectValue, setSelectValue] = useState("0");
+    const [selectValue1, setSelectValue1] = useState("0");
+
     const [fetchError, setFetchError] = useState(null);
     const [flights, setFlights] = useState([]);
     const [hotels, setHotels] = useState([]);
+    const [trains, setTrains] = useState([]);
+    let whereFrom;
+    let dateOfDept;
+    let whereTo;
+    let dateOfArr;
+    let numOfTrav;
+    let money;
+    let travel;
+    let travelPref;
+    let hotelPref;
+
+
+    const handleFormSubmit = () => {
+        whereFrom = wherefrom;
+        dateOfDept = ddmmyyyy;
+        whereTo = whereto;
+        dateOfArr = ddmmyyyy2;
+        numOfTrav = numOfTravelers;
+        money = budget;
+        travel = selectedValue;
+        travelPref = selectValue;
+        hotelPref = selectValue1;
+        console.log(whereTo, whereFrom, dateOfDept, dateOfArr, numOfTrav, money, travel, travelPref, hotelPref);
+        let moneyToTravel;
+        let moneyToStay;
+        let moneyToFood;
+        let savedMoney;
+        if (travelPref == '0' && hotelPref == '0') {
+            moneyToTravel = money / 2;
+            moneyToStay = (money - moneyToTravel) / 2;
+            moneyToFood = (money - moneyToStay - moneyToTravel);
+        }
+        if (travelPref == '0' && hotelPref == '1') {
+            moneyToTravel = money / 2;
+            moneyToStay = (money - moneyToTravel) / 4;
+            moneyToFood = 0.5 * (money - moneyToStay - moneyToTravel);
+            savedMoney = (money - moneyToFood - moneyToStay - moneyToTravel);
+        }
+        if (travelPref == '1' && hotelPref == '0') {
+            moneyToStay = money / 2;
+            moneyToTravel = (money - moneyToStay) / 4;
+            moneyToFood = 0.5 * (money - moneyToStay - moneyToTravel);
+            savedMoney = (money - moneyToFood - moneyToStay - moneyToTravel);
+        }
+        if (travelPref == '1' && hotelPref == '1') {
+            moneyToTravel = money / 2;
+            moneyToStay = (money - moneyToTravel) / 2;
+            moneyToFood = (money - moneyToStay - moneyToTravel);
+        }
+        console.log(moneyToFood, moneyToStay, moneyToTravel);
+        if (travel === 'option1') {
+            console.log('flight')
+        } else if (travel === 'option2') {
+            console.log('trains')
+        }
+    };
+
+    useEffect(() => {
+        const fetchBudFlights = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('flights_ai')
+                    .select()
+                    .lte('price', moneyToTravel)
+                if (error) {
+                    throw new Error('Could not fetch flights');
+                }
+
+                setFlights(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message);
+                setFlights([]);
+            }
+        };
+
+        fetchBudFlights();
+    }, []);
+
+    useEffect(() => {
+        const fetchBudHotels = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('hotels')
+                    .select()
+                    .lte('price', moneyToStay)
+
+                if (error) {
+                    throw new Error('Could not fetch hotels');
+
+                }
+                setHotels(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message);
+                setHotels([]);
+            }
+        };
+
+        fetchBudHotels();
+    }, []);
+
+    useEffect(() => {
+        const fetchBudTrains = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('train_ai')
+                    .select()
+                    .lte('price', moneyToTravel)
+                if (error) {
+                    throw new Error('Could not fetch trains');
+                }
+                setTrains(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message);
+                setTrains([]);
+            }
+        };
+
+        fetchBudTrains();
+    }, []);
+
 
     useEffect(() => {
         const fetchFlights = async () => {
@@ -35,24 +171,22 @@ function Dashboard() {
     useEffect(() => {
         const fetchHotels = async () => {
             try {
-                const { data, error } = await supabase
-                    .from('hotels')
-                    .select();
+                const { data, error } = await supabase.from('hotels').select();
                 if (error) {
-                    throw new Error('Could not fetch flights');
+                    throw new Error('Could not fetch hotels');
+
                 }
                 setHotels(data || []);
                 setFetchError(null);
             } catch (error) {
                 console.error(error);
-                setFetchError(error.message)
-                setHotels([])
+                setFetchError(error.message);
+                setHotels([]);
             }
         };
+
         fetchHotels();
     }, []);
-
-    const [trains, setTrains] = useState([]);
 
     useEffect(() => {
         const fetchTrains = async () => {
@@ -71,8 +205,10 @@ function Dashboard() {
                 setTrains([]);
             }
         };
+
         fetchTrains();
     }, []);
+
     return (
         <>
             <useAuth>
@@ -80,46 +216,37 @@ function Dashboard() {
                     <h1 className={styles.title}>Your Trip</h1>
                     <div className={styles.where}>
                         <div className={styles.icon1}>ico</div>
-                        <div className="styles.holder"><input type="text" placeholder="Where to" /></div>
+                        <div className="styles.holder"><input type="text" placeholder="Where to" onChange={(e) => setWhereto(e.target.value)} /></div>
                         <div className={styles.icon2}>=</div>
-                        <div className="styles.holder"><input type="text" placeholder="Where from" /></div>
-
+                        <div className="styles.holder"><input type="text" placeholder="Where from" onChange={(e) => setWherefrom(e.target.value)} /></div>
                     </div>
                     <div className={styles.date}>
                         <div className={styles.icon3}>ico</div>
                         <div>Date</div>
-                        <div><input type="date" placeholder="from" /></div>
+                        <div><input type="date" placeholder="from" onChange={(e) => setDdmmyyyy(e.target.value)} /></div>
                         <div>-</div>
-                        <div><input type="date" name="till" /></div>
+                        <div><input type="date" name="till" onChange={(e) => setDdmmyyyy2(e.target.value)} /></div>
                     </div>
                     <div className={styles.ppl}>
                         <div className={styles.icon4}>ico</div>
-                        <div>No. of travellers</div>
-                        <div><input type="number" placeholder="num" /></div>
+                        <div>No. of travelers</div>
+                        <div><input type="number" placeholder="num" onChange={(e) => setNumOfTravelers(e.target.value)} /></div>
                     </div>
                     <div className={styles.money}>
                         <div className={styles.icon5}>ico</div>
                         <div>Budget</div>
-                        <div><input type="number" placeholder="num" /></div>
+                        <div><input type="number" placeholder="num" onChange={(e) => setBudget(e.target.value)} /></div>
                     </div>
                     <div className={styles.travel}>
                         <div className={styles.icon6}>ico</div>
                         <div>Travel</div>
-                        <div><input type="radio" name="radio" />Flight</div>
-                        <div><input type="radio" name="radio" />Train</div>
+                        <div><input type="radio" name="1" checked={selectedValue === "option1"} onChange={() => setSelectedValue("option1")} />Flight</div>
+                        <div><input type="radio" name="2" checked={selectedValue === "option2"} onChange={() => setSelectedValue("option2")} />Train</div>
                     </div>
-                    <div className={styles.food}>
-                        <div className={styles.icon7}>ico</div>
-                        <div className="styles.holder">Food</div>
-                        <div><input type="radio" name="radio" />Veg</div>
-                        <div><input type="radio" name="radio" />Non Veg</div>
-                    </div>
-                    <button className={styles.submit}>Submit</button>
-                    {/* <div className={styles.img}></div> */}
                     <h1 className={styles.title2}>Preference</h1>
                     <h1 className={styles.preftrav}>Travel:</h1>
                     <div className={styles.menu1}>
-                        <select>
+                        <select onChange={(e) => setSelectValue(e.target.value)}>
                             <option value="0">luxurious</option>
                             <option value="1">Attractive</option>
                             <option value="2">Economic</option>
@@ -127,12 +254,13 @@ function Dashboard() {
                     </div>
                     <h1 className={styles.prefhot}>Hotel:</h1>
                     <div className={styles.menu2}>
-                        <select>
+                        <select onChange={(e) => setSelectValue1(e.target.value)}>
                             <option value="0">luxurious</option>
                             <option value="1">Attractive</option>
                             <option value="2">Economic</option>
                         </select>
                     </div>
+                    <button className={styles.submit} onClick={handleFormSubmit}>Submit</button>
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
                 </section>
@@ -185,7 +313,6 @@ function Dashboard() {
                                 {hotels.map(hotel => (
                                     <div key={hotel.hotel_id} className={styles.hotel_items}>
                                         <div className={styles.hotel}>
-
                                             <p>Hotel No.: {hotel.hotel_id}</p>
                                             <div className={styles.flex}>
                                                 <p className={styles.prize}>Price: {hotel.price}</p>
@@ -198,8 +325,6 @@ function Dashboard() {
                         </div>
                     </section>
                 </section>
-
-
             </useAuth>
         </>
     );
