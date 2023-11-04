@@ -29,23 +29,24 @@ function Test() {
         };
 
         fetchFlights();
-        const fetchHotels = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('hotels')
-                    .select();
-                if (error) {
-                    throw new Error('Could not fetch flights');
-                }
-                setHotels(data || []);
-                setFetchError(null);
-            } catch (error) {
-                console.error(error);
-                setFetchError(error.message)
-                setHotels([])
-            }
-        };
-        fetchHotels();
+        // const fetchHotels = async () => {
+        //     try {
+        //         const { data, error } = await supabase
+        //             .from('hotels')
+        //             .select();
+        //         if (error) {
+        //             throw new Error('Could not fetch flights');
+        //         }
+        //         setHotels(data || []);
+        //         console.log(data || []);
+        //         setFetchError(null);
+        //     } catch (error) {
+        //         console.error(error);
+        //         setFetchError(error.message)
+        //         setHotels([])
+        //     }
+        // };
+        // fetchHotels();
     }, []);
 
     // useEffect(() => {
@@ -75,11 +76,16 @@ function Test() {
                 <div className={styles.flight_list}>
                     {flights.map(flight => (
                         <div key={flight.fl_id} className={styles.flight_items}>
-                            <p>Flight No.: {flight.fl_id}</p>
-                            <p>Time: {flight.time}</p>
-                            <p>Source: {flight.source}</p>
-                            <p>Destination: {flight.destination}</p>
-                            <p>Price: {flight.price}</p>
+                            <div className={styles.flight_pcont}>
+                                <p>Flight No.: {flight.fl_id}</p>
+                                <p>Time: {flight.time}</p>
+                                {/* <p>Source: {flight.source}</p>
+                            <p>Destination: {flight.destination}</p> */}
+                                <div className={styles.flex}>
+                                    <p className={styles.prize}>Price: {flight.price}</p>
+                                    <button className={styles.btn}>+</button>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

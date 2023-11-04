@@ -11,12 +11,58 @@
     display: flex;
     overflow-x: scroll;
     justify-content: space-around;
+
 }
 
 .flight_list {
     display: flex;
+
+
 }
 
 .flight_items {
+    border: 2px solid transparent;
+    border-radius: 20px;
+    // padding-left: 70px;
+    // padding-right: 70px;
+    height: 220px;
+    width: 252px;
+    background: url(./plane.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.flight_pcont {
+    margin-top: 126px;
+}
+
+.flight_items p {
+    font-family: $primary-font;
+    background-color: antiquewhite;
+    padding-left: 10px;
+}
+
+.btn {
+    // border: 1px solid $primary-color;
+    // width: 50px;
+    // height: 50px;
+    // border-radius: 100px;
+    // background-color: rgb(146, 146, 227);
+    cursor: pointer;
+    @include navbtn;
+    padding-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+    background-color: antiquewhite;
+    justify-content: space-around;
+}
+
+.prize {
     border: 2px solid $secondary-color;
+    justify-self: center;
+    align-self: center;
+    margin-left: -10px;
 }
