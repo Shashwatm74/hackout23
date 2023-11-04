@@ -46,7 +46,23 @@ function Dashboard() {
                         <div><input type="radio" name="radio" />Non Veg</div>
                     </div>
                     <button className={styles.submit}>Submit</button>
-                    <div className={styles.img}>
+                    {/* <div className={styles.img}></div> */}
+                    <h1 className={styles.title2}>Preference</h1>
+                    <h1 className={styles.preftrav}>Travel:</h1>
+                    <div className={styles.menu1}>
+                        <select>
+                            <option value="0">luxurious</option>
+                            <option value="1">Attractive</option>
+                            <option value="2">Economic</option>
+                        </select>
+                    </div>
+                    <h1 className={styles.prefhot}>Hotel:</h1>
+                    <div className={styles.menu2}>
+                        <select>
+                            <option value="0">luxurious</option>
+                            <option value="1">Attractive</option>
+                            <option value="2">Economic</option>
+                        </select>
                     </div>
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
