@@ -3,7 +3,7 @@
 
 .dashboard {
     @include sectionWrapper;
-    overflow-y: scroll;
+    height: 100vh;
 }
 
 .title {
@@ -322,5 +322,133 @@
     grid-column: 11/ span 1;
     margin-top: 5px;
     margin-left: 10px;
+    font-family: $primary-font;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    overflow-x: scroll;
+    justify-content: space-around;
+
+}
+
+.flight_list {
+    display: flex;
+
+
+}
+
+.flight_items {
+    border: 2px solid transparent;
+    border-radius: 20px;
+    // padding-left: 70px;
+    // padding-right: 70px;
+    height: 220px;
+    width: 252px;
+    background: url(./plane.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.flight_pcont {
+    margin-top: 126px;
+}
+
+.flight_items p {
+    font-family: $primary-font;
+    background-color: antiquewhite;
+    padding-left: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    @include navbtn;
+    padding-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+    background-color: antiquewhite;
+    justify-content: space-around;
+}
+
+.prize {
+    border: 2px solid $secondary-color;
+    justify-self: center;
+    align-self: center;
+    margin-left: -10px;
+}
+
+.hotel_list {
+    display: flex;
+}
+
+.hotel_items {
+    border: 2px solid transparent;
+    border-radius: 20px;
+    height: 220px;
+    width: 252px;
+    background: url(./plane.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.hotel_pcont {
+    margin-top: 20px;
+}
+
+.hotel_items p {
+    font-family: $primary-font;
+    background-color: antiquewhite;
+    padding-left: 10px;
+}
+
+.train_list {
+    display: flex;
+}
+
+.train_items {
+    border: 2px solid transparent;
+    border-radius: 20px;
+    height: 220px;
+    width: 252px;
+    background: url(./plane.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.train_pcont {
+    margin-top: 20px;
+}
+
+.train_items p {
+    font-family: $primary-font;
+    background-color: antiquewhite;
+    padding-left: 10px;
+}
+
+.train {
+    margin-top: 128px;
+}
+
+.hotel {
+    margin-top: 128px;
+}
+
+.free {
+    height: 50vh;
+}
+
+.free h1 {
     font-family: $primary-font;
 }

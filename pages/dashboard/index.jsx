@@ -1,9 +1,78 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "styles/components/dashboard/dashboard.module.scss";
+import supabase from "@/lib/db/supabase";
 import Image from 'next/image';
 import { useAuth } from "@/lib/hooks/AuthHook";
 
 function Dashboard() {
+    const [fetchError, setFetchError] = useState(null);
+    const [flights, setFlights] = useState([]);
+    const [hotels, setHotels] = useState([]);
+
+    useEffect(() => {
+        const fetchFlights = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('flights_ai')
+                    .select();
+
+                if (error) {
+                    throw new Error('Could not fetch flights');
+                }
+
+                setFlights(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message);
+                setFlights([]);
+            }
+        };
+
+        fetchFlights();
+    }, []);
+
+    useEffect(() => {
+        const fetchHotels = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('hotels')
+                    .select();
+                if (error) {
+                    throw new Error('Could not fetch flights');
+                }
+                setHotels(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message)
+                setHotels([])
+            }
+        };
+        fetchHotels();
+    }, []);
+
+    const [trains, setTrains] = useState([]);
+
+    useEffect(() => {
+        const fetchTrains = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('train_ai')
+                    .select();
+                if (error) {
+                    throw new Error('Could not fetch trains');
+                }
+                setTrains(data || []);
+                setFetchError(null);
+            } catch (error) {
+                console.error(error);
+                setFetchError(error.message);
+                setTrains([]);
+            }
+        };
+        fetchTrains();
+    }, []);
     return (
         <>
             <useAuth>
@@ -66,13 +135,67 @@ function Dashboard() {
                     </div>
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
-                    <h1 className={styles.tra}>Travel</h1>
-                    <div className={styles.card2}></div>
-                    <h1 className={styles.sta}>Stay</h1>
-                    <div className={styles.card3}></div>
-                    <h1 className={styles.sigh}>Sightseeing</h1>
-                    <div className={styles.card4}></div>
                 </section>
+                <section className={styles.wrapper}>
+                    <div className={styles.container}>
+                        {fetchError && <p>{fetchError}</p>}
+                        <div className={styles.flight_list}>
+                            {flights.map(flight => (
+                                <div key={flight.fl_id} className={styles.flight_items}>
+                                    <div className={styles.flight_pcont}>
+                                        <p>Flight No.: {flight.fl_id}</p>
+                                        <p>Time: {flight.time}</p>
+                                        <div className={styles.flex}>
+                                            <p className={styles.prize}>Price: {flight.price}</p>
+                                            <button className={styles.btn}>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <section className={styles.wrapper}>
+                    <div className={styles.container}>
+                        {fetchError && <p>{fetchError}</p>}
+                        <div className={styles.train_list}>
+                            {trains.map(train => (
+                                <div key={train.trn_no} className={styles.train_items}>
+                                    <div className={styles.train}>
+                                        <p>Train No.: {train.trn_no}</p>
+                                        <p>Available Seats: {train.avl_ss}</p>
+                                        <div className={styles.flex}>
+                                            <p className={styles.prize}>Price: {train.price}</p>
+                                            <button className={styles.btn}>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <section className={styles.free}>
+                    <section className={styles.wrapper}>
+                        <div className={styles.container}>
+                            {fetchError && <p>{fetchError}</p>}
+                            <div className={styles.hotel_list}>
+                                {hotels.map(hotel => (
+                                    <div key={hotel.hotel_id} className={styles.hotel_items}>
+                                        <div className={styles.hotel}>
+
+                                            <p>Hotel No.: {hotel.hotel_id}</p>
+                                            <div className={styles.flex}>
+                                                <p className={styles.prize}>Price: {hotel.price}</p>
+                                                <button className={styles.btn}>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
 
             </useAuth>
         </>
