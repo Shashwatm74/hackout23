@@ -195,50 +195,50 @@ function About() {
           </div>
           <div className={styles.card1}>
             <h1 className={styles.abouttext1}>
-              hello
+              Gujarat
             </h1>
             <p className={styles.aboutpara1}>
-              anything you wanna put here
+              Vibrant Gujarat
             </p>
           </div>
           <div className={styles.card2}>
             <h1 className={styles.abouttext2}>
-              hello
+              Punjab
             </h1>
             <p className={styles.aboutpara2}>
-              anything you wanna put here
+              India Begins Here
             </p>
           </div>
           <div className={styles.card3}>
             <h1 className={styles.abouttext1}>
-              hello
+              Kerala
             </h1>
             <p className={styles.aboutpara1}>
-              anything you wanna put here
+              God's Own Country
             </p>
           </div>
           <div className={styles.card4}>
             <h1 className={styles.abouttext1}>
-              hello
+              Manipur
             </h1>
             <p className={styles.aboutpara1}>
-              anything you wanna put here
+              Jewel of Incredible India
             </p>
           </div>
           <div className={styles.card5}>
             <h1 className={styles.abouttext1}>
-              hello
+              Maharashtra
             </h1>
             <p className={styles.aboutpara1}>
-              anything you wanna put here
+              Unlimited
             </p>
           </div>
           <div className={styles.card6}>
             <h1 className={styles.abouttext1}>
-              hello
+              Tripura
             </h1>
             <p className={styles.aboutpara1}>
-              anything you wanna put here
+              Visit Agartala
             </p>
           </div>
         </div>
