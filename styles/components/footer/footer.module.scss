@@ -31,10 +31,47 @@
     font-weight: 100;
 }
 
-.info {
+.midsec {
     border-right: 2px solid white;
     grid-column: 4 /span 6;
     grid-row: 1/ span 28;
     display: flex;
+    justify-content:space-around;
 
+}
+
+.midsec h1 {
+    color: $primary-color;
+    font-family: $primary-font;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 60px 0px 0px 0px;
+}
+.midsec .policy {
+    @include midsecpara;
+}
+.midsec .info {
+    @include midsecpara;
+}
+.midsec .home {
+    @include midsecpara;
+}
+.address {
+    border-right: 2px solid white;
+    grid-column: 10/ span 13;
+    grid-row: 1/ span 28;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    margin: 0px 0px 0px 140px;
+}
+.address h1 {
+    color: $primary-color;
+    font-family: $primary-font;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 30px 0px 0px 0px;
+}
+.address p {
+    @include midsecpara;
 }
