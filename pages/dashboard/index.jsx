@@ -136,6 +136,7 @@ function Dashboard() {
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
                 </section>
+                <h1 className={styles.headingFli}>Flights</h1>
                 <section className={styles.wrapper}>
                     <div className={styles.container}>
                         {fetchError && <p>{fetchError}</p>}
@@ -155,6 +156,7 @@ function Dashboard() {
                         </div>
                     </div>
                 </section>
+                <h1 className={styles.headtr}>Trains</h1>
                 <section className={styles.wrapper}>
                     <div className={styles.container}>
                         {fetchError && <p>{fetchError}</p>}
@@ -174,6 +176,7 @@ function Dashboard() {
                         </div>
                     </div>
                 </section>
+                <h1 className={styles.headhot}>Hotels</h1>
                 <section className={styles.free}>
                     <section className={styles.wrapper}>
                         <div className={styles.container}>
