@@ -194,10 +194,11 @@ function Contact() {
                             </p>
                         </div>
                         <h1 className={styles.head}>
-                            Heading one
+                            Time, Money, Experience
                         </h1>
                         <p className={styles.para}>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum laboriosam deleniti explicabo dolorem quos magnam voluptas quibusdam debitis minima ut.
+                            
+An all-inclusive solution that covers everything from booking arrangements to travel logistics and even personalized tourist site recommendations
                         </p>
                     </div>
                     <div className={styles.point2}>
@@ -207,10 +208,10 @@ function Contact() {
                             </p>
                         </div>
                         <h1 className={styles.head}>
-                            Heading two
+                            Efficient & Impactful
                         </h1>
                         <p className={styles.para}>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum laboriosam deleniti explicabo dolorem quos magnam voluptas quibusdam debitis minima ut.
+                        Content that aligns with the user's requirements, fulfills the user's booking preferences and timing needs.
                         </p>
                     </div>
                     <div className={styles.point3}>
@@ -220,10 +221,10 @@ function Contact() {
                             </p>
                         </div>
                         <h1 className={styles.head}>
-                            Heading three
+                            Budget Friendly
                         </h1>
                         <p className={styles.para}>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum laboriosam deleniti explicabo dolorem quos magnam voluptas quibusdam debitis minima ut.
+                            Cost-effective travel organizer
                         </p>
                     </div>
                     <div className={styles.card5}>
