@@ -63,7 +63,7 @@ const Nav = () => {
 
 
                     <Link className={styles.logoLink} href="/" replace >
-                        <p className={styles.logo} id="navLogo">Title.ai</p>
+                        <p className={styles.logo} id="navLogo">Itenary.iq</p>
                     </Link>
 
 
