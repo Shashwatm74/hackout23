@@ -186,7 +186,7 @@ function About() {
         <div className={styles.sectionWrapper}>
           <div ref={headingRef} className={styles.heading}>
 
-            Cities Not to be Missed
+            Cities Not to be Missed!
 
           </div>
           <div ref={contRef} className={styles.content}>
