@@ -151,17 +151,22 @@ function Dashboard() {
 
     };
 
-    useEffect(() => {
-        fetchBudFlights();
-    }, []);
-
-    useEffect(() => {
-        fetchBudTrains();
-    }, []);
-
+    if (travel === 'option1') {
+        useEffect(() => {
+            fetchBudFlights();
+        }, []);
+    } else if (travel === 'option2') {
+        useEffect(() => {
+            fetchBudTrains();
+        }, []);
+    }
     useEffect(() => {
         fetchBudHotels();
     }, []);
+
+
+
+
 
     useEffect(() => {
         const fetchFlights = async () => {
@@ -283,6 +288,68 @@ function Dashboard() {
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
                 </section>
+                <h1 className={styles.headingFli}>Flights</h1>
+                <section className={styles.wrapper}>
+                    <div className={styles.container}>
+                        {fetchError && <p>{fetchError}</p>}
+                        <div className={styles.flight_list}>
+                            {flights.map(flight => (
+                                <div key={flight.fl_id} className={styles.flight_items}>
+                                    <div className={styles.flight_pcont}>
+                                        <p>Flight No.: {flight.fl_id}</p>
+                                        <p>Time: {flight.time}</p>
+                                        <div className={styles.flex}>
+                                            <p className={styles.prize}>Price: {flight.price}</p>
+                                            <button className={styles.btn}>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <h1 className={styles.headtr}>Trains</h1>
+                <section className={styles.wrapper}>
+                    <div className={styles.container}>
+                        {fetchError && <p>{fetchError}</p>}
+                        <div className={styles.train_list}>
+                            {trains.map(train => (
+                                <div key={train.trn_no} className={styles.train_items}>
+                                    <div className={styles.train}>
+                                        <p>Train No.: {train.trn_no}</p>
+                                        <p>Available Seats: {train.avl_ss}</p>
+                                        <div className={styles.flex}>
+                                            <p className={styles.prize}>Price: {train.price}</p>
+                                            <button className={styles.btn}>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <h1 className={styles.headhot}>Hotels</h1>
+                <section className={styles.free}>
+                    <section className={styles.wrapper}>
+                        <div className={styles.container}>
+                            {fetchError && <p>{fetchError}</p>}
+                            <div className={styles.hotel_list}>
+                                {hotels.map(hotel => (
+                                    <div key={hotel.hotel_id} className={styles.hotel_items}>
+                                        <div className={styles.hotel}>
+                                            <p>Hotel No.: {hotel.hotel_id}</p>
+                                            <div className={styles.flex}>
+                                                <p className={styles.prize}>Price: {hotel.price}</p>
+                                                <button className={styles.btn}>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
                 <h1 className={styles.headingFli}>Flights</h1>
                 <section className={styles.wrapper}>
                     <div className={styles.container}>
