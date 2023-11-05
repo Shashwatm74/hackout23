@@ -76,8 +76,6 @@ We welcome contributions from the community to enhance CaseFlowPro_beta. If you'
 
 - Ensure your code follows the project's coding standards and conventions.
 
-## License 📜
-This project is licensed under the MIT License.
 
 ## License 📜
 
