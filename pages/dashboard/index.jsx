@@ -77,77 +77,67 @@ function Dashboard() {
         }
     };
 
-    useEffect(() => {
-        const fetchBudFlights = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('flights_ai')
-                    .select()
-                    .lte('price', moneyToTravel)
-                if (error) {
-                    throw new Error('Could not fetch flights');
-                }
-
-                setFlights(data || []);
-                setFetchError(null);
-            } catch (error) {
-                console.error(error);
-                setFetchError(error.message);
-                setFlights([]);
+    const fetchBudFlights = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('flights_ai')
+                .select()
+                .lte('price', moneyToTravel)
+            if (error) {
+                throw new Error('Could not fetch flights');
             }
-        };
 
-        fetchBudFlights();
-    }, []);
+            setFlights(data || []);
+            setFetchError(null);
+        } catch (error) {
+            console.error(error);
+            setFetchError(error.message);
+            setFlights([]);
+        }
+    };
 
 
 
-    useEffect(() => {
-        const fetchBudHotels = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('hotels')
-                    .select()
-                    .lte('price', moneyToStay)
+    const fetchBudHotels = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('hotels')
+                .select()
+                .lte('price', moneyToStay)
 
-                if (error) {
-                    throw new Error('Could not fetch hotels');
+            if (error) {
+                throw new Error('Could not fetch hotels');
 
-                }
-                setHotels(data || []);
-                setFetchError(null);
-            } catch (error) {
-                console.error(error);
-                setFetchError(error.message);
-                setHotels([]);
             }
-        };
+            setHotels(data || []);
+            setFetchError(null);
+            console.log(data)
+        } catch (error) {
+            console.error(error);
+            setFetchError(error.message);
+            setHotels([]);
+        }
+    };
 
-        fetchBudHotels();
-    }, []);
 
-
-    useEffect(() => {
-        const fetchBudTrains = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('train_ai')
-                    .select()
-                    .lte('price', moneyToTravel)
-                if (error) {
-                    throw new Error('Could not fetch trains');
-                }
-                setTrains(data || []);
-                setFetchError(null);
-            } catch (error) {
-                console.error(error);
-                setFetchError(error.message);
-                setTrains([]);
+    const fetchBudTrains = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('train_ai')
+                .select()
+                .lte('price', moneyToTravel)
+            if (error) {
+                throw new Error('Could not fetch trains');
             }
-        };
+            setTrains(data || []);
+            setFetchError(null);
+        } catch (error) {
+            console.error(error);
+            setFetchError(error.message);
+            setTrains([]);
+        }
+    };
 
-        fetchBudTrains();
-    }, []);
 
 
     const handleShowSubmit = () => {
@@ -160,6 +150,18 @@ function Dashboard() {
         fetchBudHotels();
 
     };
+
+    useEffect(() => {
+        fetchBudFlights();
+    }, []);
+
+    useEffect(() => {
+        fetchBudTrains();
+    }, []);
+
+    useEffect(() => {
+        fetchBudHotels();
+    }, []);
 
     useEffect(() => {
         const fetchFlights = async () => {
