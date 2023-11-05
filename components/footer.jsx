@@ -8,7 +8,7 @@ function Footer() {
 
                 <div className={styles.copyright}>
                     <hr />
-                    &#169; Legal.ai
+                    &#169; Travel.ai
                 </div>
             </div>
         </footer>

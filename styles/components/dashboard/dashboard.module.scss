@@ -471,3 +471,10 @@
     margin-left: 40px;
     font-family: $primary-font;
 }
+
+.show {
+    @include navbtn;
+    border-radius: 20px;
+    grid-row: 35/ span 5;
+    grid-column: 5/ span 1;
+}

@@ -29,6 +29,12 @@ function Dashboard() {
     let travelPref;
     let hotelPref;
 
+    let moneyToTravel;
+    let moneyToStay;
+    let moneyToFood;
+    let savedMoney;
+
+
 
     const handleFormSubmit = () => {
         whereFrom = wherefrom;
@@ -41,10 +47,6 @@ function Dashboard() {
         travelPref = selectValue;
         hotelPref = selectValue1;
         console.log(whereTo, whereFrom, dateOfDept, dateOfArr, numOfTrav, money, travel, travelPref, hotelPref);
-        let moneyToTravel;
-        let moneyToStay;
-        let moneyToFood;
-        let savedMoney;
         if (travelPref == '0' && hotelPref == '0') {
             moneyToTravel = money / 2;
             moneyToStay = (money - moneyToTravel) / 2;
@@ -261,6 +263,7 @@ function Dashboard() {
                         </select>
                     </div>
                     <button className={styles.submit} onClick={handleFormSubmit}>Submit</button>
+                    <button className={styles.show} onClick={handleFormSubmit}>Show</button>
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
                 </section>
