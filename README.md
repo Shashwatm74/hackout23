@@ -8,12 +8,20 @@ Welcome to Itenary.iq, where travel dreams take flight! Our mission is simple: t
 3. Dynamic Selection: Real-time, database-driven choices for flights, trains, and hotels, all in one place! 🛌🚄✈️
 4. Machine Learning Assistance: Predictive insights to help you decide where to go and when! 🧠🌍
 
+![WhatsApp Image 2023-11-05 at 08 58 33_f840fdb9](https://github.com/Shashwatm74/hackout23/assets/110082422/2e5fde7c-8d41-43ff-bff7-3b0666789fa7)
+
+![WhatsApp Image 2023-11-05 at 10 22 41_25b75889](https://github.com/Shashwatm74/hackout23/assets/110082422/e7686e49-7c54-4d20-80be-f7066f5a4f46)
+
+
 ## How It Works 🚀
 
 Log In with Google: Securely access your personalized travel space! 🔒
 Share Your Details: Let us know where, when, and how you want to travel. 📆🌴
 Receive Custom Recommendations: Explore tailored options for flights, trains, and hotels. ✈️🚆🏨
 Seamless Booking: Finalize your plans effortlessly, all in one go! 🎉
+
+![WhatsApp Image 2023-11-05 at 10 22 46_a66ee676](https://github.com/Shashwatm74/hackout23/assets/110082422/a8f979d5-e5f6-4e4e-a3ca-0168645f7fa8)
+
 
 ## Tech Stack 💻
 
