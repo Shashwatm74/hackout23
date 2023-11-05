@@ -100,6 +100,8 @@ function Dashboard() {
         fetchBudFlights();
     }, []);
 
+
+
     useEffect(() => {
         const fetchBudHotels = async () => {
             try {
@@ -124,6 +126,7 @@ function Dashboard() {
         fetchBudHotels();
     }, []);
 
+
     useEffect(() => {
         const fetchBudTrains = async () => {
             try {
@@ -146,6 +149,17 @@ function Dashboard() {
         fetchBudTrains();
     }, []);
 
+
+    const handleShowSubmit = () => {
+        console.log(moneyToFood, moneyToStay, moneyToTravel);
+        if (travel === 'option1') {
+            fetchBudFlights();
+        } else if (travel === 'option2') {
+            fetchBudTrains();
+        }
+        fetchBudHotels();
+
+    };
 
     useEffect(() => {
         const fetchFlights = async () => {
@@ -263,7 +277,7 @@ function Dashboard() {
                         </select>
                     </div>
                     <button className={styles.submit} onClick={handleFormSubmit}>Submit</button>
-                    <button className={styles.show} onClick={handleFormSubmit}>Show</button>
+                    <button className={styles.show} onClick={handleShowSubmit}>Show</button>
                     <h1 className={styles.recc}>Recommendation</h1>
                     <div className={styles.card1}></div>
                 </section>

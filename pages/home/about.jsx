@@ -3,12 +3,6 @@ import React, { useEffect, useRef } from "react";
 import styles from "@/styles/components/aboutpage/About.module.scss";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap";
-import Image from "next/image";
-import Link from "next/link";
-import aboutimg1 from "@/assets/images/aboutimg1.jpeg";
-import aboutimg2 from "@/assets/images/aboutimg2.jpeg";
-import aboutimg3 from "@/assets/images/aboutimg3.jpeg";
-import aboutimg4 from "@/assets/images/aboutimg4.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 

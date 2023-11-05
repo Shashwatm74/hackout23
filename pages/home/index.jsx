@@ -3,7 +3,6 @@ import Image from "next/image";
 import Head from "next/head";
 import styles from "@/styles/components/homepage/Home.module.scss";
 import "../_app";
-import logo from "@/assets/images/logo.png";
 function HomePage() {
   const backToTopRef = useRef(null);
   return (

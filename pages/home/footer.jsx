@@ -3,7 +3,6 @@ import Image from "next/image";
 import Head from "next/head";
 import styles from "@/styles/components/footer/footer.module.scss";
 import "../_app";
-import logo from "@/assets/images/logo.png";
 function FooterHome() {
     const backToTopRef = useRef(null);
     return (
@@ -22,38 +21,38 @@ function FooterHome() {
                 </div>
                 <div className={styles.midsec}>
                     <div className={styles.home}>
-                    <h1>
-                        Home
-                    </h1>
-                    <p>Blog</p>
-                    <p>Travel</p>
-                    <p>Stay</p>
-                    <p>Bookings</p>
+                        <h1>
+                            Home
+                        </h1>
+                        <p>Blog</p>
+                        <p>Travel</p>
+                        <p>Stay</p>
+                        <p>Bookings</p>
                     </div>
                     <div className={styles.policy}>
-                    <h1>
-                        Our Policies
-                    </h1>
-                    <p>Privacy Policy</p>
-                    <p>Terms and Condition</p>
-                    <p>Cancellation Policies</p>
+                        <h1>
+                            Our Policies
+                        </h1>
+                        <p>Privacy Policy</p>
+                        <p>Terms and Condition</p>
+                        <p>Cancellation Policies</p>
                     </div>
                     <div className={styles.info}>
-                    <h1>
-                        Information
-                    </h1>
-                    <p>Office Address</p>
-                    <p>Contact</p>
-                    <p>Deals</p>
+                        <h1>
+                            Information
+                        </h1>
+                        <p>Office Address</p>
+                        <p>Contact</p>
+                        <p>Deals</p>
                     </div>
                 </div>
                 <div className={styles.address}>
                     <div className={styles.teamm}>
-                    <h1>Team</h1>
-                    <p>Harshit Singh</p>
-                    <p>Shashwat Mishra</p>
-                    <p>Sinchan Shetty</p>
-                    <p>Kunal Mukherjee</p>
+                        <h1>Team</h1>
+                        <p>Harshit Singh</p>
+                        <p>Shashwat Mishra</p>
+                        <p>Sinchan Shetty</p>
+                        <p>Kunal Mukherjee</p>
                     </div>
                 </div>
             </section>
