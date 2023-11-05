@@ -85,13 +85,19 @@ function Dashboard() {
             const { data, error } = await supabase
                 .from('flights_ai')
                 .select()
+                // .eq('destination', whereTo)
+                // .and
+                // .eq('source', whereFrom)
+                // .and
                 .lte('price', moneyToTravel)
             if (error) {
                 throw new Error('Could not fetch flights');
             }
 
             setFlights1(data || []);
+            console.log(data)
             setFetchError(null);
+            console.log(data);
         } catch (error) {
             console.error(error);
             setFetchError(error.message);
@@ -157,11 +163,11 @@ function Dashboard() {
     if (travel === 'option1') {
         useEffect(() => {
             fetchBudFlights();
-        }, []);
+        }, [travel]);
     } else if (travel === 'option2') {
         useEffect(() => {
             fetchBudTrains();
-        }, []);
+        }, [travel]);
     }
     useEffect(() => {
         fetchBudHotels();
