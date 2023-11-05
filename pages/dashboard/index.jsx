@@ -19,6 +19,9 @@ function Dashboard() {
     const [flights, setFlights] = useState([]);
     const [hotels, setHotels] = useState([]);
     const [trains, setTrains] = useState([]);
+    const [flights1, setFlights1] = useState([]);
+    const [hotels1, setHotels1] = useState([]);
+    const [trains1, setTrains1] = useState([]);
     let whereFrom;
     let dateOfDept;
     let whereTo;
@@ -87,12 +90,12 @@ function Dashboard() {
                 throw new Error('Could not fetch flights');
             }
 
-            setFlights(data || []);
+            setFlights1(data || []);
             setFetchError(null);
         } catch (error) {
             console.error(error);
             setFetchError(error.message);
-            setFlights([]);
+            setFlights1([]);
         }
     };
 
@@ -109,13 +112,13 @@ function Dashboard() {
                 throw new Error('Could not fetch hotels');
 
             }
-            setHotels(data || []);
+            setHotels1(data || []);
             setFetchError(null);
             console.log(data)
         } catch (error) {
             console.error(error);
             setFetchError(error.message);
-            setHotels([]);
+            setHotels1([]);
         }
     };
 
@@ -129,12 +132,12 @@ function Dashboard() {
             if (error) {
                 throw new Error('Could not fetch trains');
             }
-            setTrains(data || []);
+            setTrains1(data || []);
             setFetchError(null);
         } catch (error) {
             console.error(error);
             setFetchError(error.message);
-            setTrains([]);
+            setTrains1([]);
         }
     };
 
@@ -286,20 +289,20 @@ function Dashboard() {
                     <button className={styles.submit} onClick={handleFormSubmit}>Submit</button>
                     <button className={styles.show} onClick={handleShowSubmit}>Show</button>
                     <h1 className={styles.recc}>Recommendation</h1>
-                    <div className={styles.card1}></div>
+                    {/* <div className={styles.card1}></div> */}
                 </section>
                 <h1 className={styles.headingFli}>Flights</h1>
                 <section className={styles.wrapper}>
                     <div className={styles.container}>
                         {fetchError && <p>{fetchError}</p>}
                         <div className={styles.flight_list}>
-                            {flights.map(flight => (
-                                <div key={flight.fl_id} className={styles.flight_items}>
+                            {flights1.map(flight1 => (
+                                <div key={flight1.fl_id} className={styles.flight_items}>
                                     <div className={styles.flight_pcont}>
-                                        <p>Flight No.: {flight.fl_id}</p>
-                                        <p>Time: {flight.time}</p>
+                                        <p>Flight No.: {flight1.fl_id}</p>
+                                        <p>Time: {flight1.time}</p>
                                         <div className={styles.flex}>
-                                            <p className={styles.prize}>Price: {flight.price}</p>
+                                            <p className={styles.prize}>Price: {flight1.price}</p>
                                             <button className={styles.btn}>+</button>
                                         </div>
                                     </div>
@@ -313,13 +316,13 @@ function Dashboard() {
                     <div className={styles.container}>
                         {fetchError && <p>{fetchError}</p>}
                         <div className={styles.train_list}>
-                            {trains.map(train => (
-                                <div key={train.trn_no} className={styles.train_items}>
+                            {trains1.map(train1 => (
+                                <div key={train1.trn_no} className={styles.train_items}>
                                     <div className={styles.train}>
-                                        <p>Train No.: {train.trn_no}</p>
-                                        <p>Available Seats: {train.avl_ss}</p>
+                                        <p>Train No.: {train1.trn_no}</p>
+                                        <p>Available Seats: {train1.avl_ss}</p>
                                         <div className={styles.flex}>
-                                            <p className={styles.prize}>Price: {train.price}</p>
+                                            <p className={styles.prize}>Price: {train1.price}</p>
                                             <button className={styles.btn}>+</button>
                                         </div>
                                     </div>
@@ -334,12 +337,12 @@ function Dashboard() {
                         <div className={styles.container}>
                             {fetchError && <p>{fetchError}</p>}
                             <div className={styles.hotel_list}>
-                                {hotels.map(hotel => (
-                                    <div key={hotel.hotel_id} className={styles.hotel_items}>
+                                {hotels1.map(hotel1 => (
+                                    <div key={hotel1.hotel_id} className={styles.hotel_items}>
                                         <div className={styles.hotel}>
-                                            <p>Hotel No.: {hotel.hotel_id}</p>
+                                            <p>Hotel No.: {hotel1.hotel_id}</p>
                                             <div className={styles.flex}>
-                                                <p className={styles.prize}>Price: {hotel.price}</p>
+                                                <p className={styles.prize}>Price: {hotel1.price}</p>
                                                 <button className={styles.btn}>+</button>
                                             </div>
                                         </div>
